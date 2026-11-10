@@ -1,6 +1,6 @@
 import pytest
 
-from mltemplate.utils import group_train_test_split, precision_recall_f1
+from churn.utils import group_train_test_split, precision_recall_f1
 
 
 def test_split_has_no_group_leakage() -> None:

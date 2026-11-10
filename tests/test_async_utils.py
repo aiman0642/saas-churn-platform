@@ -2,7 +2,7 @@ import time
 
 import pytest
 
-from mltemplate.async_utils import (
+from churn.async_utils import (
     fake_api_call,
     retry,
     run_concurrently,
