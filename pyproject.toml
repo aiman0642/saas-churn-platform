@@ -2,10 +2,10 @@
 name = "churn"
 version = "0.1.0"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["pandas", "scikit-learn", "joblib"]
 
 [project.optional-dependencies]
-dev = ["pytest", "pytest-cov", "pytest-asyncio", "ruff", "mypy", "pre-commit"]
+dev = ["pytest", "pytest-cov", "pytest-asyncio", "ruff", "mypy", "pre-commit", "pandas-stubs"]
 
 [build-system]
 requires = ["setuptools>=68"]
@@ -17,6 +17,7 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
 
 [tool.ruff]
 line-length = 88
@@ -29,3 +30,7 @@ select = ["E", "F", "I", "UP"]
 python_version = "3.11"
 strict = true
 files = ["src"]
+
+[[tool.mypy.overrides]]
+module = ["sklearn.*", "joblib.*"]
+ignore_missing_imports = true
